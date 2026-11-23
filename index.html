@@ -31,7 +31,7 @@ footer{margin-top:auto;padding:30px 0 22px;color:#64748b;font-size:13px;position
 </style></head><body><div class="arka"></div><nav class="ust"><a href="/" class="secili">Ana Sayfa</a><a href="/hakkimda">Hakkımda</a></nav><main>
 <img class="logo" id="logo" src="logo.png" alt="Whinsy">
 <h1 id="baslik">Whinsy</h1>
-<p class="alt" id="alt">Kick yayıncısı<br>Yayınlarda oyun, sohbet ve bol kahkaha. Topluluğa katıl!</p>
+<p class="alt" id="alt" hidden></p>
 <a class="canli" id="canli" href="https://kick.com/whinsyy" target="_blank" rel="noopener"><i></i><span id="canli-yazi">Şu an yayında değil</span></a>
 <div class="oynatici" id="oynatici" hidden><iframe src="https://player.kick.com/whinsyy?muted=true&autoplay=true" allowfullscreen allow="autoplay; fullscreen"></iframe></div>
 <div class="linkler" id="linkler"><a class="link ana" href="https://kick.com/whinsyy" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="13" rx="2"/><path d="M8 21h8M10 9.5v5l4.5-2.5z"/></svg><span>Kick'te izle</span><small>kick.com/whinsyy</small></a><a class="link" href="https://discord.gg/KE58Dyju7d" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-4.9A8 8 0 1 1 21 12z"/></svg><span>Discord sunucusu</span><small>Katıl</small></a><a class="link" href="https://instagram.com/erlderin" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5v.01"/></svg><span>Instagram</span><small>@erlderin</small></a><a class="link" href="https://x.com/erlderin" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4l16 16M20 4 4 20"/></svg><span>X / Twitter</span><small>@erlderin</small></a></div>
@@ -46,7 +46,7 @@ async function icerik(){
   try{
     const d = await (await fetch(PANEL + "/site/veri", {cache: "no-store"})).json();
     document.title = d.baslik; document.getElementById("baslik").textContent = d.baslik;
-    document.getElementById("alt").innerHTML = (d.alt_yazi || "").split("\n").map(esc).join("<br>");
+    const altEl = document.getElementById("alt"); altEl.innerHTML = (d.alt_yazi || "").split("\n").map(esc).join("<br>"); altEl.hidden = !(d.alt_yazi || "").trim();
     document.getElementById("linkler").innerHTML = d.linkler.map(l => `<a class="link${l.ana ? " ana" : ""}" href="${esc(guvenli(l.url))}" target="_blank" rel="noopener">${svg(l.ikon_svg)}<span>${esc(l.ad)}</span><small>${esc(l.aciklama)}</small></a>`).join("");
     const t = document.getElementById("takvim");
     const satirlar = (d.takvim || []).filter(x => x.gun);
