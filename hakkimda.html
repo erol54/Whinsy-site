@@ -4,13 +4,18 @@
 <style>
 *{box-sizing:border-box;margin:0}
 body{font-family:Inter,"Segoe UI",Roboto,sans-serif;background:#0a0e18;color:#fff;min-height:100vh;display:flex;flex-direction:column;align-items:center}
-.arka{position:fixed;inset:0;background:radial-gradient(900px 520px at 50% -12%,rgba(59,130,246,.22),transparent 70%);pointer-events:none}
+.arka{position:fixed;inset:0;pointer-events:none;background:radial-gradient(900px 600px at 85% -10%,rgba(59,130,246,.20),transparent 70%),radial-gradient(700px 500px at -10% 30%,rgba(37,99,235,.12),transparent 70%)}
+.arka::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(148,163,184,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(148,163,184,.05) 1px,transparent 1px);
+ background-size:48px 48px;mask-image:linear-gradient(#000,transparent 70%);-webkit-mask-image:linear-gradient(#000,transparent 70%)}
 header.bas{position:relative;z-index:2;width:100%;max-width:1240px;padding:20px 28px;display:flex;align-items:center;justify-content:space-between}
 .marka{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-weight:800;font-size:19px}.marka img{width:34px;height:34px;object-fit:contain}
 @media(max-width:560px){header.bas{padding:20px 16px}.marka span{display:none}}
 .ust{position:relative;z-index:2;display:flex;gap:6px;padding:5px;border-radius:99px;background:rgba(15,21,36,.8);border:1px solid #1a2438}
 .ust a{color:#9aa6c2;text-decoration:none;font-size:14px;font-weight:600;padding:8px 16px;border-radius:99px}.ust a.secili{background:#1a2438;color:#fff}.ust a:hover{color:#fff}
-main{position:relative;width:100%;max-width:820px;padding:40px 22px 30px}
+main{position:relative;width:100%;max-width:1240px;padding:18px 28px 30px}
+.ust-bolum{display:grid;grid-template-columns:1fr minmax(0,560px);gap:28px;align-items:center;padding:30px;border-radius:22px;background:rgba(15,21,36,.75);border:1px solid #1a2438;backdrop-filter:blur(6px)}
+.govde{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:22px;margin-top:22px;align-items:start}
+.yan-kolon{display:flex;flex-direction:column;gap:14px}
 .kahraman{display:grid;grid-template-columns:150px 1fr;gap:30px;align-items:center}
 .avatar{width:150px;height:150px;border-radius:28px;background:#0f1524;border:1px solid #1a2438;display:flex;align-items:center;justify-content:center;position:relative}
 .avatar img{width:96px;height:96px;object-fit:contain;filter:drop-shadow(0 8px 24px rgba(59,130,246,.4))}
@@ -21,28 +26,31 @@ main{position:relative;width:100%;max-width:820px;padding:40px 22px 30px}
 h1{font-size:46px;font-weight:800;letter-spacing:-.8px;margin-top:6px}
 .etiketler{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
 .etiket{font-size:13px;padding:6px 12px;border-radius:99px;background:#0f1524;border:1px solid #1a2438;color:#cbd5e1}
-.istatistik{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px}
-.ist{padding:18px 20px;border-radius:16px;background:#0f1524;border:1px solid #1a2438}
+.istatistik{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.ist{padding:18px 20px;border-radius:16px;background:#0a0f1c;border:1px solid #1a2438}
 .ist small{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#9aa6c2}
 .ist b{display:block;font-size:26px;margin-top:6px}.ist b.kirmizi{color:#f87171}
-.kart{margin-top:22px;padding:28px;border-radius:18px;background:#0f1524;border:1px solid #1a2438}
+.kart{padding:32px;border-radius:18px;background:#0f1524;border:1px solid #1a2438}
 .kart h2{font-size:13px;text-transform:uppercase;letter-spacing:.12em;color:#9aa6c2;margin-bottom:14px}
-.kart p{color:#dbe2f0;font-size:16.5px;line-height:1.75}.kart p+p{margin-top:12px}
-.izgara{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
-.ozellik{padding:20px;border-radius:16px;background:#0f1524;border:1px solid #1a2438;transition:.15s}
+.kart p{color:#dbe2f0;font-size:17px;line-height:1.8}.kart p+p{margin-top:12px}
+.izgara{display:grid;grid-template-columns:1fr;gap:14px}
+.ozellik{display:grid;grid-template-columns:auto 1fr;column-gap:14px;align-items:start;padding:18px 20px;border-radius:16px;background:#0f1524;border:1px solid #1a2438;transition:.15s}
 .ozellik:hover{border-color:#3b82f6;transform:translateY(-2px)}
-.ozellik .ik{font-size:26px}.ozellik b{display:block;margin-top:10px;font-size:16px}.ozellik span{display:block;margin-top:6px;color:#9aa6c2;font-size:14px;line-height:1.55}
-.sosyal{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
-.sosyal a{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;background:#0f1524;border:1px solid #1a2438;color:#fff;text-decoration:none;font-weight:600;font-size:14.5px;transition:.15s}
+.ozellik .ik{font-size:26px;grid-row:span 2;line-height:1.2}.ozellik b{display:block;font-size:16px}.ozellik span{display:block;margin-top:6px;color:#9aa6c2;font-size:14px;line-height:1.55}
+.sosyal{display:flex;flex-wrap:wrap;gap:10px}.sosyal a{flex:1 1 0;min-width:max-content}.sosyal a.ana{flex-basis:100%}
+.sosyal a{display:flex;justify-content:center;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;background:#0f1524;border:1px solid #1a2438;color:#fff;text-decoration:none;font-weight:600;font-size:14.5px;transition:.15s}
 .sosyal a:hover{border-color:#3b82f6}.sosyal a svg{color:#60a5fa}
 .sosyal a.ana{background:#3b82f6;border-color:#3b82f6}.sosyal a.ana svg{color:#fff}.sosyal a.ana:hover{background:#2563eb}
-footer{margin-top:auto;padding:34px 0 22px;color:#64748b;font-size:13px;position:relative}
-@media(max-width:700px){.kahraman{grid-template-columns:1fr;justify-items:center;text-align:center}.etiketler{justify-content:center}
- h1{font-size:38px}.istatistik{gap:10px}.ist{padding:14px 12px}.ist b{font-size:19px}.ist small{font-size:10.5px}.izgara{grid-template-columns:1fr}.sosyal{justify-content:center}}
+footer{margin-top:auto;padding:40px 0 24px;color:#64748b;font-size:13px;position:relative}
+@media(min-width:701px){.ist b{white-space:nowrap;font-size:24px}}
+@media(max-width:960px){.ust-bolum{grid-template-columns:1fr}.govde{grid-template-columns:1fr}}
+@media(max-width:700px){main{padding:10px 16px 24px}.ust-bolum{padding:24px 18px}.kahraman{grid-template-columns:1fr;justify-items:center;text-align:center}.etiketler{justify-content:center}
+ h1{font-size:38px}.istatistik{gap:10px}.ist{padding:14px 12px}.ist b{font-size:19px}.ist small{font-size:10.5px}.kart{padding:24px 20px}.kart p{font-size:16px}}
 </style></head><body><div class="arka"></div>
 <header class="bas"><a class="marka" href="/"><img src="logo.png" alt=""><span>Whinsy</span></a>
 <nav class="ust"><a href="/">Ana Sayfa</a><a href="/hakkimda" class="secili">Hakkımda</a></nav></header>
 <main>
+<div class="ust-bolum">
 <section class="kahraman">
   <div class="avatar"><img id="logo" src="logo.png" alt="Whinsy"><i class="nokta" id="nokta"></i></div>
   <div><div class="ust-yazi">Kick yayıncısı</div><h1 id="baslik">Whinsyy</h1>
@@ -53,12 +61,15 @@ footer{margin-top:auto;padding:34px 0 22px;color:#64748b;font-size:13px;position
   <div class="ist"><small>Yayın durumu</small><b id="durum">Çevrim dışı</b></div>
   <div class="ist"><small>Platform</small><b>Kick</b></div>
 </section>
+</div>
+<div class="govde">
 <section class="kart"><h2 id="h-baslik">Hakkımda</h2><div id="metin">
   <p>Adım Erol, İzmit'te yaşıyorum.</p>
   <p>Boş vakitlerimde arkadaşlarımla veya tek başıma oyun oynamayı çok seviyorum.</p>
   <p>Keyif aldığım anları sizlerle paylaşmak istedim ve yayınlara başladım.</p>
   <p>Bu anlarda beni izleyip desteklediğiniz için çok teşekkür ederim.</p>
   <p>Yayınlarımdaki komik anları da YouTube'da paylaşıyorum.</p></div></section>
+<div class="yan-kolon">
 <section class="izgara" id="kartlar">
   <div class="ozellik"><div class="ik">🎮</div><b>Yayınlar</b><span>Oyun, sohbet ve bol kahkaha dolu canlı yayınlar.</span></div>
   <div class="ozellik"><div class="ik">💬</div><b>Topluluk</b><span>Discord'da sohbet, etkinlik ve yayın duyuruları.</span></div>
@@ -70,6 +81,7 @@ footer{margin-top:auto;padding:34px 0 22px;color:#64748b;font-size:13px;position
   <a href="https://instagram.com/erlderin" target="_blank" rel="noopener">Instagram</a>
   <a href="https://x.com/erlderin" target="_blank" rel="noopener">X / Twitter</a>
 </section>
+</div></div>
 </main><footer id="alt-bilgi">© 2026 Whinsy • Tüm hakları saklıdır.</footer>
 <script>
 const PANEL = "https://panel.whinsy.com.tr";
