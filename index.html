@@ -18,6 +18,19 @@ background:rgba(148,163,184,.08);border:1px solid #1e2a42;color:#9aa6c2;text-dec
 @keyframes nabiz{0%{box-shadow:0 0 0 0 rgba(239,68,68,.7)}70%{box-shadow:0 0 0 10px rgba(239,68,68,0)}100%{box-shadow:0 0 0 0 rgba(239,68,68,0)}}
 .oynatici{margin-top:18px;width:100%;aspect-ratio:16/9;border-radius:14px;overflow:hidden;border:1px solid #1e2a42;background:#000}
 .oynatici iframe{width:100%;height:100%;border:0}
+.onizleme{margin-top:22px;width:100%}.onizleme .ust-satir{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.onizleme h2,.shorts h2{font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:#9aa6c2;font-weight:700}
+.onizleme .ust-satir a,.shorts .ust-satir a{color:#60a5fa;font-size:13px;font-weight:600;text-decoration:none}
+.onizleme .oynatici{margin-top:0}
+.shorts{margin-top:34px;width:100%;text-align:left}.shorts .ust-satir{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.shorts-izgara{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.short{position:relative;display:block;aspect-ratio:9/16;border-radius:12px;overflow:hidden;background:#0f1524;border:1px solid #1a2438;transition:.15s}
+.short:hover{border-color:#3b82f6;transform:translateY(-2px)}
+.short img{width:100%;height:100%;object-fit:cover;display:block;transition:.25s}.short:hover img{transform:scale(1.04)}
+.short::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(0,0,0,.85))}
+.short span{position:absolute;left:8px;right:8px;bottom:8px;z-index:1;color:#fff;font-size:12px;font-weight:600;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.short i{position:absolute;top:8px;right:8px;z-index:1;width:26px;height:26px;border-radius:50%;background:rgba(0,0,0,.55);display:grid;place-items:center}
+.short i::before{content:"";margin-left:2px;border-left:9px solid #fff;border-top:6px solid transparent;border-bottom:6px solid transparent}
 .linkler{margin-top:26px;width:100%;display:flex;flex-direction:column;gap:12px}
 .link{display:flex;align-items:center;gap:14px;padding:15px 18px;border-radius:14px;background:#0f1524;border:1px solid #1a2438;color:#fff;text-decoration:none;font-weight:600;transition:.15s}
 .link:hover{border-color:#3b82f6;transform:translateY(-1px);background:#121b2e}
@@ -27,14 +40,16 @@ background:rgba(148,163,184,.08);border:1px solid #1e2a42;color:#9aa6c2;text-dec
 .izgara{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .kutu{padding:16px;border-radius:14px;background:#0f1524;border:1px solid #1a2438}.kutu b{display:block;font-size:15px}.kutu small{color:#9aa6c2;font-size:13px}
 footer{margin-top:auto;padding:30px 0 22px;color:#64748b;font-size:13px;position:relative}
-@media(max-width:480px){h1{font-size:34px}.izgara{grid-template-columns:1fr}}
+@media(max-width:480px){h1{font-size:34px}.izgara{grid-template-columns:1fr}.shorts-izgara{gap:8px}}
 </style></head><body><div class="arka"></div><nav class="ust"><a href="/" class="secili">Ana Sayfa</a><a href="/hakkimda">Hakkımda</a></nav><main>
 <img class="logo" id="logo" src="logo.png" alt="Whinsy">
 <h1 id="baslik">Whinsy</h1>
 <p class="alt" id="alt" hidden></p>
 <a class="canli" id="canli" href="https://kick.com/whinsyy" target="_blank" rel="noopener"><i></i><span id="canli-yazi">Şu an yayında değil</span></a>
-<div class="oynatici" id="oynatici" hidden><iframe src="https://player.kick.com/whinsyy?muted=true&autoplay=true" allowfullscreen allow="autoplay; fullscreen"></iframe></div>
+<div class="onizleme" id="onizleme"><div class="ust-satir"><h2 id="onizleme-baslik">Kick yayını</h2><a id="onizleme-link" href="https://kick.com/whinsyy" target="_blank" rel="noopener">Kick'te aç ↗</a></div>
+<div class="oynatici" id="oynatici"><iframe src="https://player.kick.com/whinsyy?muted=true&autoplay=true" allowfullscreen allow="autoplay; fullscreen" title="Kick yayın önizlemesi"></iframe></div></div>
 <div class="linkler" id="linkler"><a class="link ana" href="https://kick.com/whinsyy" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="13" rx="2"/><path d="M8 21h8M10 9.5v5l4.5-2.5z"/></svg><span>Kick'te izle</span><small>kick.com/whinsyy</small></a><a class="link" href="https://discord.gg/KE58Dyju7d" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-4.9A8 8 0 1 1 21 12z"/></svg><span>Discord sunucusu</span><small>Katıl</small></a><a class="link" href="https://instagram.com/erlderin" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5v.01"/></svg><span>Instagram</span><small>@erlderin</small></a><a class="link" href="https://x.com/erlderin" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4l16 16M20 4 4 20"/></svg><span>X / Twitter</span><small>@erlderin</small></a></div>
+<div class="shorts" id="shorts" hidden><div class="ust-satir"><h2>Shorts</h2><a id="shorts-tumu" href="#" target="_blank" rel="noopener">Tümünü gör ↗</a></div><div class="shorts-izgara" id="shorts-izgara"></div></div>
 <div class="bolum" id="takvim" hidden></div>
 </main><footer id="alt-bilgi">© 2026 Whinsy • Tüm hakları saklıdır.</footer>
 <script>
@@ -55,8 +70,10 @@ async function icerik(){
     document.getElementById("alt-bilgi").textContent = d.alt_bilgi;
     if(d.logo_surum !== "varsayilan") document.getElementById("logo").src = PANEL + "/site/logo?v=" + encodeURIComponent(d.logo_surum);
     document.getElementById("canli").href = "https://kick.com/" + encodeURIComponent(d.kick);
-    const o = document.getElementById("oynatici"); if(o){ o.dataset.izin = d.oynatici ? "1" : "0";
-      o.querySelector("iframe").src = "https://player.kick.com/" + encodeURIComponent(d.kick) + "?muted=true&autoplay=true"; }
+    const kick = "https://kick.com/" + encodeURIComponent(d.kick);
+    document.getElementById("onizleme").hidden = !d.oynatici; document.getElementById("onizleme-link").href = kick;
+    const ifr = document.querySelector("#oynatici iframe"), yeni = "https://player.kick.com/" + encodeURIComponent(d.kick) + "?muted=true&autoplay=true";
+    if(ifr.src !== yeni) ifr.src = yeni;
   }catch(e){}
 }
 async function durum(){
@@ -65,8 +82,18 @@ async function durum(){
     const k = document.getElementById("canli"), y = document.getElementById("canli-yazi"), o = document.getElementById("oynatici");
     k.classList.toggle("acik", !!d.canli);
     y.textContent = d.canli ? "ŞU AN CANLI" + (d.baslik ? " • " + d.baslik : "") : "Şu an yayında değil";
-    if(o) o.hidden = !(d.canli && o.dataset.izin !== "0");
+    document.getElementById("onizleme-baslik").textContent = d.canli ? "🔴 Şu an canlı" : "Kick yayını";
   }catch(e){}
 }
-icerik().then(durum); setInterval(durum, 60000);
+async function shorts(){
+  try{
+    const d = await (await fetch(PANEL + "/site/shorts")).json();
+    const b = document.getElementById("shorts");
+    if(!d.aktif || !(d.videolar || []).length){ b.hidden = true; return; }
+    document.getElementById("shorts-tumu").href = guvenli(d.tumu);
+    document.getElementById("shorts-izgara").innerHTML = d.videolar.map(v => `<a class="short" href="https://www.youtube.com/shorts/${encodeURIComponent(v.id)}" target="_blank" rel="noopener" title="${esc(v.baslik)}"><img src="https://i.ytimg.com/vi/${encodeURIComponent(v.id)}/hqdefault.jpg" alt="" loading="lazy" onerror="this.style.opacity=0"><i></i><span>${esc(v.baslik)}</span></a>`).join("");
+    b.hidden = false;
+  }catch(e){}
+}
+icerik().then(durum); shorts(); setInterval(durum, 60000);
 </script></body></html>
