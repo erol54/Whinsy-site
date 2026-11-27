@@ -1,0 +1,75 @@
+<!DOCTYPE html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Whinsy Bot • Discord & Kick botu</title><link rel="icon" href="logo.png"><meta name="theme-color" content="#0a0e18">
+<meta name="description" content="Whinsy Bot: Kick alert ve sohbet eklentileri, sohbet botu, yayın bildirimleri, gelişmiş koruma, seviye sistemi ve Türkçe web paneli tek botta.">
+<meta property="og:title" content="Whinsy Bot • Discord & Kick botu"><meta property="og:image" content="https://whinsy.com.tr/logo.png">
+<style>
+*{box-sizing:border-box;margin:0}
+body{font-family:Inter,"Segoe UI",Roboto,sans-serif;background:#0a0e18;color:#fff;min-height:100vh;display:flex;flex-direction:column;align-items:center}
+.arka{position:fixed;inset:0;pointer-events:none;background:radial-gradient(900px 600px at 85% -10%,rgba(59,130,246,.20),transparent 70%),radial-gradient(700px 500px at -10% 30%,rgba(37,99,235,.12),transparent 70%)}
+.arka::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(148,163,184,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(148,163,184,.05) 1px,transparent 1px);
+ background-size:48px 48px;mask-image:linear-gradient(#000,transparent 70%);-webkit-mask-image:linear-gradient(#000,transparent 70%)}
+header.bas{position:relative;z-index:2;width:100%;max-width:1240px;padding:20px 28px;display:flex;align-items:center;justify-content:space-between}
+.marka{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-weight:800;font-size:19px}.marka img{width:34px;height:34px;object-fit:contain}
+@media(max-width:560px){header.bas{padding:20px 16px}.marka span{display:none}}
+.ust{position:relative;z-index:2;display:flex;gap:6px;padding:5px;border-radius:99px;background:rgba(15,21,36,.8);border:1px solid #1a2438}
+.ust a{color:#9aa6c2;text-decoration:none;font-size:14px;font-weight:600;padding:8px 16px;border-radius:99px}.ust a.secili{background:#1a2438;color:#fff}.ust a:hover{color:#fff}
+@media(max-width:560px){.ust a{padding:8px 11px;font-size:13px}}
+main{position:relative;width:100%;max-width:1240px;padding:18px 28px 30px}
+.kahraman{text-align:center;padding:40px 20px 30px}
+.rozet{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:99px;background:rgba(59,130,246,.12);border:1px solid rgba(59,130,246,.35);color:#93c5fd;font-size:13px;font-weight:700}
+.kahraman h1{font-size:52px;font-weight:900;letter-spacing:-1.2px;margin-top:18px;background:linear-gradient(90deg,#fff,#93c5fd);-webkit-background-clip:text;background-clip:text;color:transparent}
+.kahraman p{color:#9aa6c2;font-size:18px;line-height:1.6;max-width:720px;margin:14px auto 0}
+.cipler{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:22px}
+.cip{padding:9px 16px;border-radius:12px;background:#0f1524;border:1px solid #1a2438;font-size:14px;font-weight:600}.cip b{color:#60a5fa}
+.dugmeler{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:26px}
+.btn{padding:13px 22px;border-radius:12px;font-weight:700;text-decoration:none;font-size:15px}
+.btn.ana{background:#3b82f6;color:#fff}.btn.ana:hover{background:#2563eb}.btn.ikincil{background:#0f1524;border:1px solid #1e2a42;color:#fff}.btn.ikincil:hover{border-color:#3b82f6}
+.bolum{margin-top:44px}.bolum h2{font-size:24px;font-weight:800;margin-bottom:16px}
+.oz-izgara{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px}
+.oz{display:flex;gap:14px;padding:18px;border-radius:16px;background:rgba(15,21,36,.8);border:1px solid #1a2438;transition:.15s}
+.oz:hover{border-color:#3b82f6;transform:translateY(-2px)}
+.oz-ik{flex:none;width:44px;height:44px;border-radius:12px;background:#0a0f1c;border:1px solid #1e2a42;display:grid;place-items:center;font-size:22px}
+.oz b{font-size:16px}.oz p{color:#9aa6c2;font-size:14px;line-height:1.55;margin-top:5px}
+.adimlar{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.adim{padding:22px;border-radius:16px;background:rgba(15,21,36,.8);border:1px solid #1a2438}
+.adim i{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#3b82f6;font-style:normal;font-weight:800;margin-bottom:12px}
+.adim b{font-size:16px}.adim p{color:#9aa6c2;font-size:14px;line-height:1.55;margin-top:6px}
+.son{margin-top:50px;text-align:center;padding:36px 24px;border-radius:22px;background:linear-gradient(120deg,rgba(59,130,246,.18),rgba(15,21,36,.85) 65%);border:1px solid #1e3a6b}
+.son h2{font-size:26px;font-weight:800}.son p{color:#9aa6c2;margin:10px auto 0;max-width:620px;line-height:1.6}
+footer{margin-top:auto;padding:40px 0 24px;color:#64748b;font-size:13px;position:relative}
+@media(max-width:800px){.adimlar{grid-template-columns:1fr}.oz-izgara{grid-template-columns:1fr}}
+@media(max-width:560px){main{padding:10px 16px 24px}.kahraman{padding:24px 4px 10px}.kahraman h1{font-size:36px}.kahraman p{font-size:16px}.bolum h2{font-size:20px}}
+</style></head><body><div class="arka"></div>
+<header class="bas"><a class="marka" href="/"><img src="logo.png" alt=""><span>Whinsy</span></a>
+<nav class="ust"><a href="/">Ana Sayfa</a><a href="/hakkimda">Hakkımda</a><a href="/whinsy-bot" class="secili">Whinsy Bot</a></nav></header>
+<main>
+<section class="kahraman">
+<span class="rozet">🤖 Discord & Kick botu</span>
+<h1>Whinsy Bot</h1>
+<p>Yayıncılar ve topluluklar için hepsi bir arada bot: Kick alert ve sohbet eklentileri, sohbet botu, yayın bildirimleri, gelişmiş koruma, seviye sistemi ve hepsini yönettiğin Türkçe bir web paneli.</p>
+<div class="cipler"><span class="cip"><b>36+</b> özellik</span><span class="cip">🇹🇷 Türkçe panel</span><span class="cip">🎮 Kick + 💬 Discord</span><span class="cip">📱 Telefondan yönetim</span></div>
+<div class="dugmeler"><a class="btn ana dc-link" href="https://discord.gg/KE58Dyju7d" target="_blank" rel="noopener">Sunucuna eklemek için Discord'dan ulaş ↗</a>
+<a class="btn ikincil" href="#ozellikler">Özellikleri gör ↓</a></div>
+</section>
+<div id="ozellikler"></div>
+<section class="bolum"><h2>📢 Yayın ve bildirimler</h2><div class="oz-izgara"><div class="oz"><div class="oz-ik">🎮</div><div><b>Kick yayın bildirimi</b><p>Yayın açılınca Discord'a kapak görseli, başlık, kategori ve izleyici sayısıyla duyuru; yayın bitince süreyle birlikte güncellenir.</p></div></div><div class="oz"><div class="oz-ik">▶️</div><div><b>YouTube bildirimi</b><p>Yeni video ve Shorts yüklendiğinde seçtiğin kanala otomatik duyuru.</p></div></div><div class="oz"><div class="oz-ik">🔴</div><div><b>Canlı durum kanalı</b><p>Yayın açılınca bir kanalın adı "🔴 CANLI" olur, bitince geri döner. Sunucuya giren herkes yayında olduğunu görür.</p></div></div><div class="oz"><div class="oz-ik">💬</div><div><b>Kick sohbeti Discord'da</b><p>Kick sohbeti, sadece yöneticilerin gördüğü bir Discord kanalına canlı olarak akar.</p></div></div></div></section>
+<section class="bolum"><h2>🎬 Kick yayın araçları</h2><div class="oz-izgara"><div class="oz"><div class="oz-ik">🚨</div><div><b>Alert'ler</b><p>Takip, abone, hediye abone, ödül ve raid için ayrı ayrı alert. Kendi GIF/videonu ve sesini yükle; renk, yazı tipi, animasyon, konum hepsi ayarlanır.</p></div></div><div class="oz"><div class="oz-ik">🗨️</div><div><b>Sohbet eklentisi</b><p>Kick sohbetini OBS'te şık bir kutuda göster; rozetler, renkler, saydam arka plan, canlı önizleme.</p></div></div><div class="oz"><div class="oz-ik">🎯</div><div><b>Hedef çubuğu</b><p>Abone ya da takipçi hedefini OBS'te ilerleme çubuğuyla göster, kendiliğinden dolar.</p></div></div><div class="oz"><div class="oz-ik">🎵</div><div><b>Şarkı isteği</b><p>İzleyiciler kanal puanıyla şarkı ister, sıra panelde ve OBS'te görünür.</p></div></div><div class="oz"><div class="oz-ik">🙏</div><div><b>Teşekkür mesajları</b><p>Takip, abone, yenileme, hediye abone, ödül ve raid için sohbete otomatik teşekkür.</p></div></div><div class="oz"><div class="oz-ik">⌨️</div><div><b>Komutlar ve zamanlayıcılar</b><p>!dc gibi kendi komutların, !uptime, !so gibi hazır komutlar ve belli aralıklarla otomatik mesajlar.</p></div></div><div class="oz"><div class="oz-ik">🛡️</div><div><b>Kick moderasyonu</b><p>Link, küfür, büyük harf, emoji, sembol ve flood kuralları; her kural için ayrı ceza süresi ve uyarı mesajı.</p></div></div><div class="oz"><div class="oz-ik">📺</div><div><b>Yayın & ödüller</b><p>Başlık ve kategoriyi panelden ya da sohbetten değiştir, kanal puanı ödüllerini yönet; ödülle otomatik timeout.</p></div></div><div class="oz"><div class="oz-ik">🤖</div><div><b>Kendi bot hesabın</b><p>Ayrı bir Kick hesabı bağla, sohbetteki mesajlar kendi bot adınla çıksın.</p></div></div><div class="oz"><div class="oz-ik">💙</div><div><b>Kick abone rolü</b><p>Kick aboneleri Discord'da kodla doğrulanıp rol alır, abonelik bitince rol kendiliğinden gider.</p></div></div></div></section>
+<section class="bolum"><h2>🛡️ Koruma ve güvenlik</h2><div class="oz-izgara"><div class="oz"><div class="oz-ik">✅</div><div><b>Doğrulama</b><p>Yeni gelenler butona basmadan (istersen basit bir soruyu cevaplamadan) sunucuyu göremez; bot ve sahte hesaplar dışarıda kalır.</p></div></div><div class="oz"><div class="oz-ik">💣</div><div><b>Anti-nuke ve denuke</b><p>Toplu kanal/rol silme, ban ve atma algılanır, yapanın yetkileri alınır; silinen kanallar ve roller geri açılır.</p></div></div><div class="oz"><div class="oz-ik">🌊</div><div><b>Anti-raid ve kilit modu</b><p>Kısa sürede çok giriş olursa yeni gelenler atılır, istersen sunucu otomatik kilitlenir; tek tuşla kilitle/aç.</p></div></div><div class="oz"><div class="oz-ik">🔐</div><div><b>Tehlikeli izin koruması</b><p>Yetkisiz Yönetici/Ban izni verme, yetkili rolü dağıtma ve webhook açma geri alınır.</p></div></div><div class="oz"><div class="oz-ik">🎣</div><div><b>Dolandırıcılık linkleri</b><p>Sahte Nitro, Steam ve hediye linkleri güncel listeyle yakalanıp silinir.</p></div></div><div class="oz"><div class="oz-ik">🧮</div><div><b>Puanlı giriş kontrolü</b><p>Hesap yaşı, profil fotoğrafı ve şüpheli isimlere göre risk puanı; bildir, sustur ya da at.</p></div></div><div class="oz"><div class="oz-ik">🚫</div><div><b>Otomatik moderasyon</b><p>Spam, reklam/davet linki, toplu etiket ve Türkçe küfür filtresi; muaf roller ve ayarlanabilir eşikler.</p></div></div><div class="oz"><div class="oz-ik">🪤</div><div><b>Spam tuzak kanalı</b><p>Kimsenin yazmaması gereken kanala yazan spam hesapları otomatik atılır.</p></div></div><div class="oz"><div class="oz-ik">⚠️</div><div><b>Uyarı sistemi</b><p>/uyari ver ile 1x-2x-3x uyarı rolleri, 3. uyarıda timeout; tüm uyarılar ve geri alınanlar tarihleriyle panelde.</p></div></div></div></section>
+<section class="bolum"><h2>🎉 Topluluk</h2><div class="oz-izgara"><div class="oz"><div class="oz-ik">🏆</div><div><b>Seviye sistemi</b><p>Mesaj ve seste XP; hazır seviye rolleri tek tuşla kurulur, /seviye ve /siralama.</p></div></div><div class="oz"><div class="oz-ik">🔤</div><div><b>Kelime oyunu</b><p>Kelime zinciri: her kelime öncekinin son harfiyle başlar; TDK kontrolü, puan ve sıralama.</p></div></div><div class="oz"><div class="oz-ik">🎭</div><div><b>Rol paneli</b><p>Üyeler butona basıp kendine rol alır.</p></div></div><div class="oz"><div class="oz-ik">🎫</div><div><b>Ticket sistemi</b><p>Butonla destek talebi açılır, yetkililer özel kanalda ilgilenir.</p></div></div><div class="oz"><div class="oz-ik">🔊</div><div><b>Özel ses odaları</b><p>"Oda oluştur" kanalına giren kendi ses odasını açar, boşalınca silinir.</p></div></div><div class="oz"><div class="oz-ik">👋</div><div><b>Hoş geldin ve boost</b><p>Yeni gelenlere hoş geldin mesajı ve otomatik rol, boost basanlara teşekkür.</p></div></div><div class="oz"><div class="oz-ik">🧾</div><div><b>Loglar</b><p>Silinen ve düzenlenen mesajlar, giriş-çıkış, ses hareketleri ve denetim kaydı tek kanalda.</p></div></div></div></section>
+<section class="bolum"><h2>🖥️ Web paneli</h2><div class="oz-izgara"><div class="oz"><div class="oz-ik">🌐</div><div><b>Her şey panelden</b><p>Discord hesabınla gir; bütün ayarlar Türkçe, sade bir panelde. Telefonda da rahat kullanılır.</p></div></div><div class="oz"><div class="oz-ik">🤖</div><div><b>Bot profili</b><p>Botun senin sunucundaki adını, avatarını, banner'ını, bio'sunu ve rol adını kendine göre değiştir.</p></div></div><div class="oz"><div class="oz-ik">➕</div><div><b>Panelden kanal oluştur</b><p>Kanal ve rolleri panelden açarken kimin görüp yazabileceğini seç.</p></div></div><div class="oz"><div class="oz-ik">🧭</div><div><b>Kurulum durumu</b><p>Neyin eksik olduğunu gösteren kontrol listesi ve her eksik için "Düzelt" linki.</p></div></div><div class="oz"><div class="oz-ik">🔑</div><div><b>Panel yetkileri ve loglar</b><p>Moderatörlerine sadece istediğin sayfaları aç; panelde kim ne yaptı kayıt altında.</p></div></div><div class="oz"><div class="oz-ik">📝</div><div><b>Yenilikler</b><p>Bota gelen her özellik ve düzeltme panelde tarihiyle listelenir.</p></div></div></div></section>
+
+<section class="bolum"><h2>🚀 Nasıl başlanır?</h2><div class="adimlar">
+<div class="adim"><i>1</i><b>Bize ulaş</b><p>Discord sunucumuzdan yaz, botu sunucuna eklemen için davet linkini gönderelim.</p></div>
+<div class="adim"><i>2</i><b>Panele gir</b><p>Bot eklenince sana DM ile panel linki ve adım adım kurulum kılavuzu gelir. Discord hesabınla giriş yapman yeterli.</p></div>
+<div class="adim"><i>3</i><b>Kendine göre ayarla</b><p>Kurulum durumu kartı eksikleri gösterir; Kick hesabını bağla, OBS linklerini ekle, korumaları aç.</p></div>
+</div></section>
+<section class="son"><h2>Whinsy Bot'u kendi sunucunda kullanmak ister misin?</h2>
+<p>Sunucuna eklemek, soru sormak ya da öneride bulunmak için Discord sunucumuzdan bize ulaşabilirsin.</p>
+<div class="dugmeler"><a class="btn ana dc-link" href="https://discord.gg/KE58Dyju7d" target="_blank" rel="noopener">Discord'dan ulaş ↗</a></div></section>
+</main><footer id="alt-bilgi">© 2026 Whinsy • Tüm hakları saklıdır.</footer>
+<script>
+(async()=>{try{const d=await (await fetch("https://panel.whinsy.com.tr/site/veri")).json();
+const dc=(d.linkler||[]).find(l=>/discord\.(gg|com)/i.test(l.url||""));
+if(dc&&/^https:\/\//.test(dc.url))document.querySelectorAll(".dc-link").forEach(a=>a.href=dc.url);
+if(d.alt_bilgi)document.getElementById("alt-bilgi").textContent=d.alt_bilgi;}catch(e){}})();
+</script></body></html>
